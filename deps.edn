@@ -2,15 +2,23 @@
  :deps {
         ;; kotoba.bytes replaced UTF-8 .getBytes / String. here (2026-09-24). An explicit
         ;; floor: tools.deps takes the NEWEST sha it is shown.
-        io.github.kotoba-lang/bytes {:git/sha "d5259f35ab7c4f5a66e63ca29ed4dcf7ba3f1ac5"}
+        io.github.kotoba-lang/bytes
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "b94158fd48ec541b70d3c455912a06f407537ddc"
+         :deps/root "lib/kotoba.bytes"}
         ;; kotoba.test (clojure.test-compatible surface), not clojure.test --
         ;; scripts/migrate-clojure-test-to-kotoba-test.cljk. Explicit floor.
-        io.github.kotoba-lang/test {:git/url "https://github.com/kotoba-lang/test.git"
-                                    :git/sha "2ab4885f99fd25552d380d0f6b0b54c5a72eb7ae"}
+        io.github.kotoba-lang/test
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "b94158fd48ec541b70d3c455912a06f407537ddc"
+         :deps/root "lib/kotoba.test"}
         ;; kotoba.lang.text, not clojure.string. Pinned as an explicit floor:
         ;; tools.deps takes the NEWEST sha it is shown, so without a floor here
         ;; this repo silently rides whatever a sibling happens to name.
-        io.github.kotoba-lang/text {:git/sha "73bdb13ae7a3d004b44bca08be03a3191157a38f"}
+        io.github.kotoba-lang/text
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "b94158fd48ec541b70d3c455912a06f407537ddc"
+         :deps/root "lib/kotoba.text"}
        io.github.kotoba-lang/transit
         ;; Advanced off 77e3ce7d, which was the last commit before the office
         ;; wire moved from Transit-tagged JSON to plain JSON. Staying there
@@ -25,13 +33,15 @@
         ;; :xlsx for an `xl/` prefix and `part-sort-key` orders
         ;; `xl/worksheets/sheetN.xml`. Zero runtime deps of its own.
         io.github.kotoba-lang/ooxml
-        {:git/url "https://github.com/kotoba-lang/ooxml.git"
-         :git/sha "d4132a077c1c3797d6300a6a8a6f9c6952e27021"}
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "b94158fd48ec541b70d3c455912a06f407537ddc"
+         :deps/root "lib/kotoba.ooxml"}
         ;; A pure .cljc XML parser producing hiccup. Reading a .xlsx needs
         ;; one; writing did not.
         io.github.kotoba-lang/xml
-        {:git/url "https://github.com/kotoba-lang/xml.git"
-         :git/sha "2e467cba6c587e0bad9c5dd0cbd456e43a348470"}}
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "b94158fd48ec541b70d3c455912a06f407537ddc"
+         :deps/root "lib/kotoba.xml"}}
  :aliases
  {;; Bounded Kotoba profile (sheets.bounded-cells). :replace-paths/:replace-deps
   ;; so the compiler's classpath scan doesn't inherit the base :deps.
