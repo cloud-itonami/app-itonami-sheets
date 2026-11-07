@@ -19,15 +19,12 @@
         {:git/url "https://github.com/kotoba-lang/kotoba.git"
          :git/sha "b94158fd48ec541b70d3c455912a06f407537ddc"
          :deps/root "lib/kotoba.text"}
-       io.github.kotoba-lang/transit
-        ;; Advanced off 77e3ce7d, which was the last commit before the office
-        ;; wire moved from Transit-tagged JSON to plain JSON. Staying there
-        ;; made the round-trip test below pass without the projection ever
-        ;; being exercised — and consumers that also depend on a library
-        ;; pinning the newer transit were resolving to it anyway, so what the
-        ;; old pin bought was a green test rather than a behaviour.
-        {:git/url "https://github.com/kotoba-lang/transit.git"
-         :git/sha "ab5d9d956e088d77d7f91357f36a4a0c6bdfcadc"}
+        ;; The standalone kotoba-lang/transit repository no longer exists (GitHub
+        ;; reports "not found"); transit.core now lives in the monorepo.
+        io.github.kotoba-lang/transit
+        {:git/url "https://github.com/kotoba-lang/kotoba.git"
+         :git/sha "91ed14c090c90ceff833a868f1685c8840503f76"
+         :deps/root "lib/kotoba.transit"}
         ;; The OPC vocabulary a .xlsx is made of — content types, rels,
         ;; package. It already knew what an xlsx was: `package-kind` returns
         ;; :xlsx for an `xl/` prefix and `part-sort-key` orders
